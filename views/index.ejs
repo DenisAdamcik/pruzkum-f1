@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 survey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">F1</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-current="page" href="/">Survey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="results">Results</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="content">
+    <h1>F1</h1>
+    <form action="/submit" method="post" class="form-container">
+      <div>
+        <label class="mainLabel" for="name">Jmeno?</label>
+        <br>
+        <input type="text" name="name" id="name" placeholder="Type your name" required/>
+      </div>
+      <hr>
+      <div>
+        <label class="mainLabel" for="driver">Jaký je tvůj oblíbený jezdec</label>
+        <select name="driver" id="driver">
+          <option value="AlexAlbon">Alex Albon</option>
+          <option value="FernandoAlonso">Fernando Alonso</option>
+          <option value="CharlesLeclerc">Charles Leclerc</option>
+          <option value="LewisHamilton">Lewis Hamilton</option>
+          <option value="NicoHulkenberg">Nico Hülkenberg</option>
+          <option value="DanielRicciardo">Daniel Ricciardo</option>
+          <option value="KevinMagnussen">Kevin Magnussen</option>
+          <option value="MaxVerstappen">Max Verstappen</option>
+          <option value="LandoNorris">Lando Norris</option>
+          <option value="EstebanOcon">Esteban Ocon</option>
+          <option value="SergioPerez">Sergio Perez</option>
+          <option value="OscarPiastri">Oscar Piastri</option>
+          <option value="PierreGasly">Pierre Gasly</option>
+          <option value="LoganSargeant">Logan Sargeant</option>
+          <option value="CarlosSainz">Carlos Sainz</option>
+          <option value="LanceStroll">Lance Stroll</option>
+          <option value="YukiTsunoda">Yuki Tsunoda</option>
+          <option value="GeorgeRussell">George Russell</option>
+          <option value="ValtteriBottas">Valtteri Bottas</option>
+          <option value="ZhouGuanyu">Zhou Guanyu</option>
+          
+        </select>
+      </div>
+      <hr />
+      <div>
+        <label class="mainLabel" for="viewing">Jak se díváš na F1</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="viewing" id="viewing-daily" value="Tv" checked/>
+            V Tv
+          </label>
+          <label>
+            <input type="radio" name="viewing" id="viewing-weekly" value="Online"/>
+            Online
+          </label>
+          <label>
+            <input type="radio" name="viewing" id="viewing-monthly" value="Momenty"/>
+            Nejlepsi momenty/ Sestřih
+          </label>
+          <label>
+            <input type="radio" name="viewing" id="viewing-never" value="Nedívá"/>
+            Nedívám se na F1
+          </label>
+        </div>
+        
+      </div>
+      <hr />
+      <div>
+        <label class="mainLabel" for="seasons">Kolik sezon se divas na F1</label>
+        <input type="number" name="seasons" id="seasons" min="0" max="20" step="1" value="1" required/>
+      </div>
+      <hr />
+      
+      <button type="submit" class="submit">Submit</button>
+    </form>
+  </main>
+  <footer class="footer">
+    <p>Denis Adamčík - 2024 - průzkum &copy</p>
+  </footer>
+ 
+</body>
+
+</html>

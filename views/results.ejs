@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F1 Odpovědi</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="css/style.css" /> <!-- Link to external CSS file -->
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">F1</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Survey</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-current="page" href="results">Results</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="content">
+    <h1>Survey results</h1>
+    <div style="overflow-x:scroll;" class="centered">
+      <table id="surveyTable" border="1">
+        <tr>
+          <th>Name</th>
+          <th>Timestamp</th>
+          <th>Oblíbený Jezdec</th>
+          <th>Spůsob Sledování</th>
+          <th>Doba sledování</th>
+        </tr>
+        <% results.forEach(function(result) { 
+          const date = new Date(result.timestamp); 
+          const dateString = `${('0' + date.getDate()).slice(-2)}.${('0' + (date.getMonth() + 1)).slice(-2)}.${date.getFullYear()}`; 
+          const timeString = `${('0' + date.getHours()).slice(-2)}:${('0' + date.getMinutes()).slice(-2)}:${('0' + date.getSeconds()).slice(-2)}`;
+        %>
+        <tr>
+          <td><%= result.answers.name %></td>
+          <td><%= dateString %> <%= timeString %></td>
+          <td><%= result.answers.driver %></td>
+          <td><%= result.answers.viewing %></td>
+          <td><%= result.answers.seasons %></td>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+    <div class="barCharts">
+      <div class="genres chartContainer">
+        <label for="genreChart">Oblíbený Jezdec</label>
+        <canvas id="genreChart"></canvas>
+      </div>
+      <div class="frequency chartContainer">
+        <label for="frequencyChart">Způsob Sledování</label>
+        <canvas id="frequencyChart"></canvas>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p>Denis Adamčík - 2024 - průzkum &copy</p>
+  </footer>
+
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
